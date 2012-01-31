@@ -8,7 +8,7 @@ Port of the tomorrow night bright color scheme for Vim.
 
 from pygments.style import Style
 from pygments.token import Comment, Error, Keyword, Name, Number, Operator, \
-                           Punctuation, String, Text
+                           Punctuation, String, Text, Generic
 
 BACKGROUND   = "#000000"
 CURRENT_LINE = "#2a2a2a"
@@ -37,23 +37,32 @@ class TomorrownightbrightStyle(Style):
 
     styles = {
         
-        Comment:            COMMENT,
-        Text:               FOREGROUND,
+        Comment:                COMMENT,
+        Text:                   FOREGROUND,
 
-        Keyword:            PURPLE,
-        Operator.Word:      '',
+        Keyword:                PURPLE,
+        Keyword.Type:           YELLOW,
+        Operator.Word:          '',
 
-        String:             GREEN,
-        String.Char:        FOREGROUND,
+        String:                 GREEN,
+        String.Char:            FOREGROUND,
 
-        Name.Builtin:       RED,
-        Name.Variable:      '',
-        Name.Constant:      GREEN,
-        Name.Class:         BLUE,
-        Name.Function:      BLUE,
-        Name.Namespace:     BLUE,
-        #Name.Exception:     '',
-        Name.Tag:           BLUE,
-        #Name.Attribute:     '',
-        Name.Decorator:     AQUA,
+        Name.Builtin:           RED,
+        Name.Variable:          '',
+        Name.Variable.Instance: RED,
+        Name.Constant:          GREEN,
+        Name.Class:             YELLOW,
+        Name.Function:          BLUE,
+        Name.Namespace:         YELLOW,
+        Name.Exception:         RED,
+        Name.Tag:               BLUE,
+        #Name.Attribute:        '',
+        Name.Decorator:         AQUA,
+
+        Generic.Deleted:        RED,
+        Generic.Inserted:       GREEN,
+        Generic.Heading:        "bold " + FOREGROUND,
+        Generic.Subheading:     "bold " + AQUA,
+        Generic.Prompt:         "bold " + COMMENT
+
 }
